@@ -25,6 +25,7 @@ class Instrument extends Component {
                 </button>
                 <audio
                     className="instrument__audio"
+                    preload="auto"
                     data-key={this.props.instrument.key}
                     src={this.props.instrument.path}
                 />
