@@ -1,0 +1,149 @@
+.drumkit {
+  display: flex;
+  padding-bottom: 2.5em;
+  user-select: none;
+  justify-content: center;
+  padding-left: 0;
+}
+
+.mainWrapper {
+  text-align: center;
+}
+
+.drumkit__instrument {
+  list-style: none;
+}
+
+.instrument__button {
+  border: 0;
+  padding: 0;
+  position: relative;
+  margin: 0 -0.1em;
+  font-size: 70px;
+}
+
+.drumkit__instrument:nth-child(2n + 1) .instrument__button {
+  margin-top: 0.75em;
+  margin-left: -0.2em;
+}
+
+.drumkit__instrument:nth-child(2n + 2) .instrument__button {
+  margin-left: -0.2em;
+}
+
+.instrument__button {
+    height: .85em;
+    overflow: hidden;
+}
+
+.instrument__button span {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  color: #000;
+}
+
+.active button {
+  opacity: .9;
+}
+
+button {
+  transition: opacity 0.2s ease;
+}
+
+header {
+  margin-top: 1em;
+  margin-bottom: 3em;
+}
+
+footer {
+    padding-top: 2.5em;
+}
+
+/* Media Queries
+  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+/*
+  Note: The best way to structure the use of media queries is to create the queries
+  near the relevant code. For example, if you wanted to change the styles for buttons
+  on small devices, paste the mobile query code up in the buttons section and style it
+  there.
+  */
+
+/* Larger than mobile */
+@media (min-width: 400px) {
+  .instrument__button {
+    font-size: 100px;
+  }
+
+  .instrument__button span {font-size: 24px;}
+}
+
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 550px) {
+    .instrument__button {
+        font-size: 128px;
+      }
+}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {
+  .instrument__button {
+    font-size: 164px;
+  }
+
+  .drumkit {
+    padding-bottom: 3em;
+  }
+}
+
+.instrument__button--A,
+.instrument__button--A:hover,
+.instrument__button--A:focus,
+.instrument__button--A:active {
+    color: #bf8040;
+}
+
+.instrument__button--S,
+.instrument__button--S:hover,
+.instrument__button--S:focus,
+.instrument__button--S:active {
+    color: #604020;
+}
+
+.instrument__button--D,
+.instrument__button--D:hover,
+.instrument__button--D:focus,
+.instrument__button--D:active {
+    color: 	 #d2a679;
+}
+
+.instrument__button--F,
+.instrument__button--F:hover,
+.instrument__button--F:focus,
+.instrument__button--F:active {
+    color: #994d00;
+}
+
+.instrument__button--W,
+.instrument__button--W:hover,
+.instrument__button--W:focus,
+.instrument__button--W:active {
+    color: #ffe680;
+}
+
+.instrument__button--E,
+.instrument__button--E:hover,
+.instrument__button--E:focus,
+.instrument__button--E:active {
+    color: #ffcc00;
+}
+
+.instrument__button--R,
+.instrument__button--R:hover,
+.instrument__button--R:focus,
+.instrument__button--R:active {
+    color: #ffff00;
+}
