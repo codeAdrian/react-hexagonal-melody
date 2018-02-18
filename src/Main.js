@@ -14,15 +14,6 @@ class Main extends Component {
         this.runGame = this.runGame.bind(this);
     }
     state = {
-        instruments: [
-            { path: "./audio/tom-high.mp3", key: "65" },
-            { path: "./audio/cowbell.mp3", key: "87" },
-            { path: "./audio/bass.mp3", key: "83" },
-            { path: "./audio/hihat.mp3", key: "69" },
-            { path: "./audio/snare.mp3", key: "68" },
-            { path: "./audio/crash.mp3", key: "82" },
-            { path: "./audio/tom-low.mp3", key: "70" }
-        ],
         generatedArray: [],
         gameActive: false,
         disableInputs: false,
@@ -90,9 +81,9 @@ class Main extends Component {
 
         for (let i = 0; i < arrayLength; i++) {
             let generated = Math.floor(
-                Math.random() * this.state.instruments.length
+                Math.random() * this.props.instruments.length
             );
-            generatedArray.push(this.state.instruments[generated].key);
+            generatedArray.push(this.props.instruments[generated].key);
         }
         return generatedArray;
     }
@@ -103,7 +94,7 @@ class Main extends Component {
 
     generateInstrumentKeyArray() {
         let keyArray = [];
-        this.state.instruments.map(i => keyArray.push(i.key));
+        this.props.instruments.map(i => keyArray.push(i.key));
         return keyArray;
     }
 
@@ -162,7 +153,7 @@ class Main extends Component {
                 {utilSpace_messages}
 
                 <Drumkit
-                    instruments={this.state.instruments}
+                    instruments={this.props.instruments}
                     playAudio={this.playAudio}
                     handleKeyPress={this.handleKeyPress}
                     disableInputs={this.state.disableInputs}
@@ -175,7 +166,7 @@ class Main extends Component {
                     utilSpace_buttonText={utilSpace_buttonText}
                     utilSpace_stateText={utilSpace_stateText}
                 />
-                
+
             </main>
         );
     }
