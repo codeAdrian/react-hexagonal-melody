@@ -2,6 +2,16 @@ import React, { Component } from "react";
 import Instrument from "./Instrument";
 
 class Drumkit extends Component {
+    componentDidMount() {
+        window.addEventListener("keydown", this.handleKeyPress);
+    }
+
+    handleKeyPress = e => {
+        if(!this.props.disableInputs) {
+            this.props.playAudio(`${e.keyCode}`, true);
+        }
+    };
+
     render() {
         return (
             <article>

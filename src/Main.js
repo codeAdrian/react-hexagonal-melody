@@ -8,7 +8,6 @@ class Main extends Component {
     constructor() {
         super();
         this.playAudio = this.playAudio.bind(this);
-        this.handleKeyPress = this.handleKeyPress.bind(this);
         this.toggleGameActive = this.toggleGameActive.bind(this);
         this.generateRandomArray = this.generateRandomArray.bind(this);
         this.runGame = this.runGame.bind(this);
@@ -43,13 +42,16 @@ class Main extends Component {
                     "shake-constant"
                 );
             }, 200);
-        } else return false;
+        } else {
+          return false;
+        }
     }
 
     checkGameState(key, position) {
         let generatedArray = this.state.generatedArray;
         if (generatedArray[position] === key) {
             if (position === generatedArray.length - 1) {
+                this.setState({ disableInputs: true });
                 this.setState(
                     { gameArrayLength: this.state.gameArrayLength + 1 },
                     function() {
@@ -86,10 +88,6 @@ class Main extends Component {
             generatedArray.push(this.props.instruments[generated].key);
         }
         return generatedArray;
-    }
-
-    handleKeyPress(e) {
-        this.playAudio(`${e.keyCode}`, true);
     }
 
     generateInstrumentKeyArray() {
@@ -166,7 +164,6 @@ class Main extends Component {
                     utilSpace_buttonText={utilSpace_buttonText}
                     utilSpace_stateText={utilSpace_stateText}
                 />
-
             </main>
         );
     }

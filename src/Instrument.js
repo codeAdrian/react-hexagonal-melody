@@ -1,14 +1,10 @@
 import React, { Component } from "react";
 
 class Instrument extends Component {
-    componentDidMount() {
-        window.addEventListener("keyup", this.props.handleKeyPress.bind(this));
-    }
-
     render() {
-        let utilSpace_className = `instrument__button instrument__button--${String.fromCharCode(
-            this.props.instrument.key
-        )}`;
+      const utilSpace_className = `instrument__button instrument__button--${String.fromCharCode(
+        this.props.instrument.key
+    )}`
         return (
             <li className="drumkit__instrument">
                 <button
