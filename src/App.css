@@ -34,8 +34,8 @@
   position: absolute;
   left: 0;
   right: 0;
-  border-left: .37em solid transparent;
-  border-right: .37em solid transparent;
+  border-left: .375em solid transparent;
+  border-right: .375em solid transparent;
 }
 
 .instrument__buttonIcon:before {
@@ -117,13 +117,9 @@ footer {
   .drumkit {
     font-size: 168px;
   }
+
+  .instrument__buttonCode {font-size: 32px;}
 }
-
-/* Larger than desktop */
-@media (min-width: 1000px) {
-
-}
-
 .instrument__button--A,
 .instrument__button--A:hover,
 .instrument__button--A:focus,
