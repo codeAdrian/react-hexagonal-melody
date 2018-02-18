@@ -1,42 +1,68 @@
 .drumkit {
   display: flex;
-  padding-bottom: 2.5em;
   user-select: none;
   justify-content: center;
-  padding-left: 0;
+  font-size: 80px;
+  margin: -.2em 0 0 0;
+  padding-left: .3em;
 }
 
 .mainWrapper {
   text-align: center;
 }
 
-.drumkit__instrument {
-  list-style: none;
-}
-
 .instrument__button {
   border: 0;
   padding: 0;
   position: relative;
-  margin: 0 -0.1em;
-  font-size: 70px;
 }
 
-.drumkit__instrument:nth-child(2n + 1) .instrument__button {
-  margin-top: 0.75em;
-  margin-left: -0.2em;
+.instrument__buttonIcon {
+  position: relative;
+  display: block;
+  background-color: currentColor;
+  width: .75em;
+  height: .43em;
 }
 
-.drumkit__instrument:nth-child(2n + 2) .instrument__button {
-  margin-left: -0.2em;
+.instrument__buttonIcon:before,
+.instrument__buttonIcon:after {
+  content:"";
+  display: block;
+  width: 0; 
+  height: 0; 
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-left: .37em solid transparent;
+  border-right: .37em solid transparent;
+}
+
+.instrument__buttonIcon:before {
+  border-bottom: .25em solid currentColor;
+  bottom: 100%;
+}
+
+.instrument__buttonIcon:after {
+  border-top: .25em solid currentColor;
+  top: 100%;
+}
+
+.drumkit__instrument {
+  list-style: none;
+  margin-left: -.3em;
+}
+
+.drumkit__instrument:nth-child(odd){
+margin-top: .8em;
 }
 
 .instrument__button {
-    height: .85em;
-    overflow: hidden;
+  height: .8em;
+  background-color: transparent;
 }
 
-.instrument__button span {
+.instrument__buttonCode {
   position: absolute;
   left: 0;
   right: 0;
@@ -47,7 +73,7 @@
 }
 
 .active button {
-  opacity: .9;
+  opacity: .8;
 }
 
 button {
@@ -56,11 +82,10 @@ button {
 
 header {
   margin-top: 1em;
-  margin-bottom: 3em;
 }
 
 footer {
-    padding-top: 2.5em;
+    padding-top: 1em;
 }
 
 /* Media Queries
@@ -74,29 +99,29 @@ footer {
 
 /* Larger than mobile */
 @media (min-width: 400px) {
-  .instrument__button {
+  .drumkit {
     font-size: 100px;
   }
 
-  .instrument__button span {font-size: 24px;}
+  .instrument__buttonCode {font-size: 24px;}
+}
+
+@media (min-width: 550px) {
+  .drumkit {
+    font-size: 128px;
+  }
 }
 
 /* Larger than phablet (also point when grid becomes active) */
-@media (min-width: 550px) {
-    .instrument__button {
-        font-size: 128px;
-      }
+@media (min-width: 768px) {
+  .drumkit {
+    font-size: 168px;
+  }
 }
 
 /* Larger than desktop */
 @media (min-width: 1000px) {
-  .instrument__button {
-    font-size: 164px;
-  }
 
-  .drumkit {
-    padding-bottom: 3em;
-  }
 }
 
 .instrument__button--A,

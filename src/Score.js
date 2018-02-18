@@ -22,7 +22,6 @@ class Score extends Component {
           <div className="six columns"><strong>High Score: </strong>{this.state.highScore}</div>
         </div>
         <hr />
-        <p><strong>Message: </strong>{this.props.message}</p>
       </div>
     );
   }

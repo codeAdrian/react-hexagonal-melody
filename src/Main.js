@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Instrument from "./Instrument";
+import Messages from "./Messages";
 import Score from "./Score";
 
 class Main extends Component {
@@ -131,7 +132,7 @@ class Main extends Component {
   }
 
   render() {
-    let utilSpace_buttonText, utilSpace_stateText, utilSpace_score;
+    let utilSpace_buttonText, utilSpace_stateText, utilSpace_score,utilSpace_messages;
     this.state.gameActive
       ? (utilSpace_buttonText = "Return To Free Jam")
       : (utilSpace_buttonText = "Start New Game");
@@ -139,18 +140,16 @@ class Main extends Component {
       ? (utilSpace_stateText = "Game Mode")
       : (utilSpace_stateText = "Free Jam Mode");
     this.state.gameActive
-      ? (utilSpace_score = (
-          <Score
-            message={this.state.message}
-            currentScore={this.state.currentScore}
-          />
-        ))
+      ? (utilSpace_score = <Score currentScore={this.state.currentScore} />)
       : (utilSpace_score = null);
+    this.state.gameActive
+      ? (utilSpace_messages = <Messages message={this.state.message} />)
+      : (utilSpace_messages = null);
 
     return (
       <main>
         <article>
-        {utilSpace_score}
+          {utilSpace_messages}
           <ul className="drumkit">
             {this.state.instruments.map(i => (
               <Instrument
@@ -164,10 +163,11 @@ class Main extends Component {
           </ul>
         </article>
         <article className="row">
+        {utilSpace_score}
           <div className="row">
             <p className="columns six">
               <button
-                className="button-primary"
+                className="button button-primary"
                 onClick={this.toggleGameActive}
                 disabled={this.state.disableInputs}
               >
